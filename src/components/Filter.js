@@ -1,27 +1,15 @@
 import React, {useState} from "react";
 
-function Filter({ onCategoryChange }) {
+function Filter({ search, onSearchChange, onCategoryChange }) {
 
-  
-
-  // function onSearchChange (event){
-  //   setSearch(event.target.value);
-  // }
-  // };
-
-  // function change(val){
-    
-    // if(searchTerm == ""){
-    //   return val;
-    // }else if(val.name.toLowerCase().includes(searchTerm.toLocaleLowerCase())){
-    //   return val;
-    // }
-  // };
+  function handleSearchChange (value){
+    onSearchChange(value.target.value);
+  };
 
   return (
     <div className="Filter" >
-      <input type="text" name="search" placeholder="Search..." />
-
+      <input type="text" name="search" placeholder="Search..." value={search} onChange={handleSearchChange}/>
+    
       <select name="filter" onChange={onCategoryChange}>
 
         <option value="All">Filter by category</option>
